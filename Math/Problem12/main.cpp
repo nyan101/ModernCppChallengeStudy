@@ -1,4 +1,5 @@
 #include <iostream>
+#include <tuple>
 #include <vector>
 #include <algorithm>
 #include <functional>
@@ -7,7 +8,7 @@ using namespace std;
 
 using llint = long long;
 
-int Problem12(int n)
+pair<int,int> Problem12(int n)
 {
 	vector<int> memo(n+1);
 
@@ -35,14 +36,22 @@ int Problem12(int n)
 	for(int i=1;i<=n;i++)
 		memo[i] = getCollatzLen(i);
 
-	int ans = -1;
-	for(int len : memo)
-		ans = max(ans, len);
-	return ans;
+	int ans, maxi = -1;
+	for(int i=1;i<=n;i++)
+	{
+		if(memo[i] > maxi)
+		{
+			ans = i;
+			maxi = memo[i];
+		}
+	}
+
+	return {ans, maxi};
 }
 
 int main(int argc, char* argv[])
 {
-	cout << Problem12(1000000) << endl;
+	auto p = Problem12(1000000);
+	cout << p.first << " " << p.second << endl;
     return 0;
 }
