@@ -5,13 +5,15 @@
 
 using namespace std;
 
+using llint = long long;
+
 int Problem12(int n)
 {
 	vector<int> memo(n+1);
 
 	fill(memo.begin(), memo.end(), -1);
 
-	function<int(int)> getCollatzLen = [&](int num){
+	function<int(llint)> getCollatzLen = [&](llint num){
 		if(1<=num && num<=n && memo[num]!=-1)
 			return memo[num];
 
@@ -41,6 +43,6 @@ int Problem12(int n)
 
 int main(int argc, char* argv[])
 {
-	cout << Problem12(100000) << endl;
+	cout << Problem12(1000000) << endl;
     return 0;
 }
