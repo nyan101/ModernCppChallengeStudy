@@ -1,7 +1,7 @@
 #include <iostream>
  
 using namespace std;
- 
+
 double Problem13(int n)
 {
 	int cnt=0;
