@@ -4,7 +4,7 @@
 
 using namespace std;
  
-void Problem15(int bits)
+void Problem10(int bits)
 {
 	vector<int> gcode;
 	vector<int> inv_gcode(1<<bits);
@@ -23,7 +23,7 @@ void Problem15(int bits)
  
 int main(int argc, char* argv[])
 {
-	Problem15(5);
+	Problem10(5);
 	
     return 0;
 }
