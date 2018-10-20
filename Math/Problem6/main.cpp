@@ -12,14 +12,8 @@ vector<int> Problem06(int n)
 
     for(int i=1;i<=n;i++)
     {
-        for(int j=1;j*j<=i;j++)
-        {
-            if(i%j!=0) continue;
-
-            sumOfDivs[i] += j;
-            if(j != i/j)
-                sumOfDivs[i] += i/j;
-        }
+        for(int j=i;j<=n;j+=i)
+            sumOfDivs[j] += i;
         sumOfDivs[i] -= i;
     }
 
